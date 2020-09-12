@@ -1,0 +1,87 @@
+<br> <br> <br> <br> <br> <br><br> <br> <br> <br>
+<hr> <h4 align="center" class="text-dark"> Welcome to User's Profile Page </h4> 
+ 
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark text-light fixed-top">
+    <a class="navbar-brand text-light" >User Profile </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav justify-content-center">
+        <li class="nav-item justify-content-center">
+          <a class="nav-link text-light" [routerLink]="['/']"> Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active justify-content-center">
+          <a class="nav-link text-primary" [routerLink]="['/user-details']">User Details</a>
+        </li>
+        <li class="nav-item justify-content-center">
+          <a class="nav-link text-light" [routerLink]="['/todo']">ToDo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" [routerLink]="['/gallery']">Gallery </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" [routerLink]="['/post']" > Post </a>
+        </li>
+        
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button [routerLink]="['/']" class="btn btn-danger my-2 my-sm-0" align="right"> Sign Out</button>
+      </form>
+    </div>
+  </nav>
+  <br>
+  
+  <ul class="list-group list-group-flush" *ngFor="let usr of usersData.users"> 
+    <li class="list-group-item"> <br>
+        <img align="left" [src]="usr.profilepicture" width="150px" height="150px" class="rounded-circle">
+        <h6 align="left" class="text-secondary"> &nbsp; &nbsp; <strong>Name </strong> : {{ usr.name}} </h6>
+        <h6 align="left" class="text-secondary"> &nbsp; &nbsp; <strong> Username </strong>: {{ usr.username}} </h6>
+        <h6 align="left" class="text-secondary"> &nbsp; &nbsp; <strong> Email </strong> : {{ usr.email}} </h6>
+        <h6 align="left" class="text-secondary"> &nbsp; &nbsp; <strong> Address : Street</strong> : {{ usr.address.street}},
+          <strong> Suite:</strong> {{usr.address.suite }}, <strong> City</strong> : {{ usr.address.city }},<strong>Zipcode</strong> : {{usr.address.zipcode }},
+          <strong> Geo: latitude :</strong> {{usr.address.geo.lat}}, <strong>latitude </strong>: {{usr.address.geo.lng}} </h6> 
+        <h6 align="left" class="text-secondary"> &nbsp; &nbsp;<strong> Phone </strong>: {{ usr.phone}} </h6>
+        <h6 align="left" class="text-secondary"> &nbsp; &nbsp;<strong> Website</strong> : {{ usr.website}} </h6>
+        <h6 align="left" class="text-secondary"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>Company : Name :</strong> {{ usr.company.name }},
+          <strong>CatchPhrase :</strong> {{ usr.company.catchPhrase }},<strong> Bs</strong> : {{ usr.company.bs}} </h6> 
+    </li>  <br>
+  </ul>
+
+  
+
+  <h3 align="center" class="text-primary">API Data in Tabular Form </h3> <br>
+  <table class="table table-sm  table-bordered">
+    <tr class="table table-primary" align="center">
+      <th> Index </th>
+      <th> Profile Picture</th>
+      <th> Name </th>
+      <th> Username </th>
+      <th> Email </th>
+      <th> Address </th>
+      <th> Phone </th>
+      <th> Website </th>
+      <th> Company </th>
+    </tr>
+
+    <tr class="table table-sm" *ngFor="let usr of usersData.users" align="center">
+      <td> {{ usr.id}} </td>
+      <td> <img align="center" [src]="usr.profilepicture" width="50px" height="50px" class="rounded-circle"> </td>
+      <td> {{ usr.name}} </td>
+      <td> {{ usr.username }} </td>
+      <td> {{ usr.email }}  </td>
+      <td> Street: {{ usr.address.street}}, Suite:{{usr.address.suite }}, City:{{ usr.address.city }}, Pin:{{usr.address.zipcode }}, Geo: Latitude:{{usr.address.geo.lat}}, Longitude:{{usr.address.geo.lng}}</td>
+      <td> {{ usr.phone }} </td>
+      <td> {{ usr.website }} </td>
+      <td> Name: {{ usr.company.name}}, CatchPhrase: {{ usr.company.catchPhrase }}, Bs: {{ usr.company.bs}}  </td>
+    </tr>
+  </table>
+
+
+<router-outlet> </router-outlet>

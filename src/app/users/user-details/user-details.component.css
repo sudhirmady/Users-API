@@ -1,0 +1,8 @@
+body{
+ background-color: aliceblue;
+ top:100px;
+}
+
+.btn .btn-danger{
+ align-items: flex-end;
+}

@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title> My Task </title>
+	<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
+       
+</head>
+<body>
+
+
+<section align="center" class="wave"> 
+<div class="card">
+	<div class="card-header">
+  <h5 align="Center" class="text-secondary"> <br> Select an account <br> </h5>
+</div>
+ <div class="scrollbar">
+  <div class="card-body" data-spy="scroll">
+    
+    <ul class="list-group list-group-flush" *ngFor="let usr of usersData.users"> 
+    <li class="list-group-item" style="height:50px;" >
+      <img align="left" [src]="usr.profilepicture" width="30px" height="30px" class="rounded-circle">
+      <a class="nav-link" [routerLink]="['./user-details']">
+        <h6 align="left" class="text-secondary"> &nbsp; &nbsp; {{ usr.name}} </h6>
+        </a>
+        <hr> 
+    </li>  
+    
+  
+  </ul>
+  </div>
+  </div>
+</div>
+ 
+</section>
+
+
+<router-outlet> </router-outlet>
+
+</body>
+</html>
+
